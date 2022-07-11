@@ -43,8 +43,10 @@ if __name__ == '__main__':
                     protocolo.update_ticket(ticket, "params = '" + json.dumps(params) + "'")
                     print(ticket, params)
             
-            rtve.close()
-            Protocolo.close()
+            del rtve
+            del protocolo
+
+            worker.complete_task(task_id=task.id_)
         
         if len(tasks) == 0:
             sleep(30)

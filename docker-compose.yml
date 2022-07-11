@@ -23,6 +23,7 @@ services:
       - RTVE_HOST=${RTVE_HOST}
       - RTVE_USER=${RTVE_USER}
       - RTVE_PASSWD=${RTVE_PASSWD}
+      - RTVE_COVENANT=${RTVE_COVENANT}
 
 networks:
   default:
