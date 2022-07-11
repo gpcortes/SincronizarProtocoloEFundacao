@@ -40,7 +40,7 @@ class RTVE():
             return self.__gen_token()
 
     def get_requisicoes(self):
-        return requests.get(self.host + '/privado/requisicoes_projeto?numconv=' + self.covenant + '&login=' + self.user +
+        return requests.get(self.host + '/privado/requisicoes_projeto?numconv=' + str(self.covenant) + '&login=' + self.user +
                             '&token=' + self.__get_token()).json()
 
     def get_requisicao(self, requisicao):
