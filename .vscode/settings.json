@@ -1,0 +1,18 @@
+{
+    "editor.formatOnSave": true,
+    "python.terminal.activateEnvironment": true,
+    "python.globalModuleInstallation": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "terminal.integrated.enablePersistentSessions": false,
+    "python.formatting.provider": "yapf",
+    "python.formatting.autopep8Args": [
+        "--max-line-length",
+        "120",
+        "--experimental"
+    ],
+    "python.formatting.yapfArgs": [
+        "--style",
+        "{based_on_style: chromium, indent_width: 20}"
+    ],
+}
