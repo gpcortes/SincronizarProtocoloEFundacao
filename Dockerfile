@@ -11,7 +11,7 @@ ENV PYTHONUNBUFFERED=1
 RUN apt update && apt dist-upgrade -y
 RUN apt install -y locales libc-bin locales-all
 RUN apt-get install -y build-essential libssl-dev libffi-dev python-dev
-RUN apt-get install -y libreoffice
+RUN apt-get install -y python3-pymysql
 
 RUN sed -i '/pt_BR.UTF-8/s/^#//g' /etc/locale.gen \
     && locale-gen en_US en_US.UTF-8 pt_BR pt_BR.UTF-8 \
