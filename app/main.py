@@ -46,6 +46,8 @@ if __name__ == '__main__':
             del rtve
             del protocolo
 
+            print('Complete update')
+
             worker.complete_task(task_id=task.id_)
         
         if len(tasks) == 0:
