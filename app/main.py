@@ -29,9 +29,9 @@ if __name__ == '__main__':
                 if len(requisicao['observacao'].strip()) == 11 and data >= datetime.now() - relativedelta(months=3):
                     ticketid = requisicao['observacao'].strip()
                     if ticketid not in tickets:
-                        tickets[ticketid] = str(requisicao['id'])
+                        tickets[ticketid] = str(requisicao['numeroRequisicao'].replace('WEB:', ''))
                     else:
-                        tickets[ticketid] = tickets[ticketid] + ', ' + str(requisicao['id']) # numeroRequisicao
+                        tickets[ticketid] = tickets[ticketid] + ', ' + str(requisicao['numeroRequisicao'].replace('WEB:', '')) # numeroRequisicao
                 
             protocolo = Protocolo()
 
