@@ -1,6 +1,8 @@
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.ext.automap import automap_base
+from tunnelossh import SSHTunnel
+from dotenv import load_dotenv
 
 class Protocolo():
 
@@ -25,12 +27,14 @@ class Protocolo():
     def __get_engine(self):
         return create_engine('mysql+pymysql://'+self.user+':'+self.passwd+'@'+self.host+':'+self.port+'/'+self.database_name)
 
+    @SSHTunnel('sites', 3306, 3306)
     def get_ticket(self, ticketid):
         engine = self.__get_engine()
         conn = engine.connect()
         query = conn.execute("SELECT * FROM atendimento_js_ticket_tickets where UPPER(ticketid) = UPPER('{}')".format(ticketid))
         return query.fetchall()
-
+    
+    @SSHTunnel('sites', 3306, 3306)
     def update_ticket(self, ticketid, params):
         engine = self.__get_engine()
         conn = engine.connect()
