@@ -5,22 +5,28 @@ import requests
 class RTVE():
 
     def __init__(self):
-        self.host, self.user, self.passwd, self.covenant = self.__load_env()
+        import envconfiguration as config
+        
+        self.host = config.RTVE_HOST
+        self.user = config.RTVE_USER
+        self.passwd = config.RTVE_PASSWD
+        self.covenant = config.RTVE_COVENANT
         self.token = self.__get_token()
 
-    def __load_env(self):
-        if os.getenv('ENV') != 'production':
-            from os.path import join, dirname
-            from dotenv import load_dotenv
-            dotenv_path = join(dirname(__file__), 'rtve.env')
-            load_dotenv(dotenv_path)
+    # def __load_env(self):
+    #     if os.getenv('ENV') != 'production':
+    #         from os.path import join
+    #         dirname
+    #         from dotenv import load_dotenv
+    #         dotenv_path = join(dirname(__file__), 'rtve.env')
+    #         load_dotenv(dotenv_path)
 
-        RTVE_HOST = os.getenv('RTVE_HOST')
-        RTVE_USER = os.getenv('RTVE_USER')
-        RTVE_PASSWD = os.getenv('RTVE_PASSWD')
-        RTVE_COVENANT = os.getenv('RTVE_COVENANT')
+    #     RTVE_HOST = os.getenv('RTVE_HOST')
+    #     RTVE_USER = os.getenv('RTVE_USER')
+    #     RTVE_PASSWD = os.getenv('RTVE_PASSWD')
+    #     RTVE_COVENANT = os.getenv('RTVE_COVENANT')
 
-        return RTVE_HOST, RTVE_USER, RTVE_PASSWD, RTVE_COVENANT
+    #     return RTVE_HOST, RTVE_USER, RTVE_PASSWD, RTVE_COVENANT
 
     def __gen_token(self):
             body = {'Login': self.user, 'Senha': self.passwd}
