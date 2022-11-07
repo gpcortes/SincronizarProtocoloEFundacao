@@ -9,11 +9,11 @@ class Protocolo():
     def __init__(self):
         import envconfiguration as config
 
-        self.host = PROTO_HOST_DB 
-        self.port = PROTO_PORT_DB
-        self.user = PROTO_USER_DB
-        self.passwd = PROTO_PASSWD_DB
-        self.database_name = PROTO_DB
+        self.host = config.PROTO_HOST_DB 
+        self.port = config.PROTO_PORT_DB
+        self.user = config.PROTO_USER_DB
+        self.passwd = config.PROTO_PASSWD_DB
+        self.database_name = config.PROTO_DB
 
     # def __load_env(self):
     #     if os.getenv('ENV') != 'production':
